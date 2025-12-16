@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Call Hour Calculator</title>
+    <meta name="description"
+        content="A premium hour calculator for on-call IT professionals to track billable hours and generate invoice snippets.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <main class="container">
+        <header>
+            <h1>On-Call <span class="highlight">Tracker</span></h1>
+            <p>Calculate billable hours with precision and style.</p>
+        </header>
+
+        <div class="calculator-card glass-panel">
+            <div class="input-group">
+                <label for="job-desc">Job Description</label>
+                <input type="text" id="job-desc" placeholder="e.g. Server Maintenance" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="e.g. Client HQ, Downtown" autocomplete="off">
+            </div>
+
+            <div id="shifts-container">
+                <!-- Shifts will be added here via JS -->
+            </div>
+
+            <button id="add-shift-btn" class="secondary-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add Another Day
+            </button>
+
+            <div class="options-group">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="show-breakdown">
+                    <span class="checkmark"></span>
+                    Show Driving & On-Site Breakdown
+                </label>
+            </div>
+
+            <button id="calculate-btn" class="glow-button">Calculate Hours</button>
+
+            <div id="result-area" class="result-hidden">
+                <div class="result-header">
+                    <h2>Billable Summary</h2>
+                    <button id="copy-btn" class="icon-button" aria-label="Copy to clipboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="invoice-preview">
+                    <p id="invoice-header" class="invoice-line"></p>
+                    <p id="invoice-breakdown" class="invoice-line"></p>
+                </div>
+                <div class="total-hours">
+                    <span>Total Billable:</span>
+                    <span id="total-hours-display" class="highlight-text">0.00 hrs</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
